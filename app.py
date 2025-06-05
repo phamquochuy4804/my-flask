@@ -13,7 +13,7 @@ def home():
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <style>
             body {
-                background: linear-gradient(to right, #dfe9f3, #ffffff);
+                background: linear-gradient(to right, #f0f4ff, #c2e9fb);
                 font-family: 'Segoe UI', sans-serif;
             }
             .navbar {
@@ -30,14 +30,14 @@ def home():
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">🏠 Trang chủ</a>
+                <a class="navbar-brand" href="/">🏠 Trang chủ</a>
                 <div>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row gap-3">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">📄 Thông tin</a>
+                            <a class="nav-link" href="/info">📄 Thông tin</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">🔙 Trở về</a>
+                            <a class="nav-link" href="/">🔙 Trở về</a>
                         </li>
                     </ul>
                 </div>
@@ -58,3 +58,44 @@ def home():
     </body>
     </html>
     """
+
+@app.route("/info")
+def info():
+    return """
+    <!DOCTYPE html>
+    <html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <title>Thông tin tác giả</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                background: linear-gradient(to right, #f8e8ff, #e1f0ff);
+                font-family: 'Segoe UI', sans-serif;
+            }
+            .card {
+                background-color: #ffffffcc;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                margin-top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container d-flex justify-content-center">
+            <div class="card text-center w-75">
+                <h2 class="text-primary">📄 Thông tin tác giả</h2>
+                <p class="fs-5 mt-3">
+                    Tác giả: <strong>Phạm Quốc Huy</strong><br>
+                    Ngày làm bài: <strong>05/06/2025</strong>
+                </p>
+                <a href="/" class="btn btn-outline-primary mt-3">🔙 Quay về trang chủ</a>
+            </div>
+        </div>
+    </body>
+    </html>
+    """
+
+if __name__ == "__main__":
+    app.run(debug=True)
